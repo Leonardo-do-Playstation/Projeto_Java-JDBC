@@ -1,0 +1,29 @@
+# Compilados
+*.class
+
+# Logs
+*.log
+
+# Pacotes
+*.jar
+*.war
+*.ear
+
+# Diretórios de build
+/bin/
+/build/
+/target/
+
+# IDEs
+/.classpath
+/.project
+/.settings/
+/.idea/
+/.vscode/
+
+# SO
+.DS_Store
+Thumbs.db
+
+# Arquivos sensíveis
+db.properties
