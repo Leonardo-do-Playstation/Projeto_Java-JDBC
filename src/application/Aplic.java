@@ -36,7 +36,11 @@ public class Aplic {
 		sellerDao.insert(newSeller);
 		System.out.println("Insert! New id inserted is: " + newSeller.getId());
 		
-
+		System.out.println("\n==== TEST 5: seller update ====");
+		seller = sellerDao.findById(1);
+		seller.setName("Martha Wayne");
+		sellerDao.update(seller);
+		System.out.println("Seller updated: New name is " + seller.getName());
 		}
 	}
 
