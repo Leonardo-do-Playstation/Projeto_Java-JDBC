@@ -41,7 +41,7 @@ public class Aplic {
 		sellerDao.update(seller);
 		System.out.println("Seller updated: New name is " + seller.getName());
 
-		System.out.println("\n==== TEST 6: seller update ====");
+		System.out.println("\n==== TEST 6: seller delete ====");
 		seller = sellerDao.findById(newSeller.getId());
 		sellerDao.deleteById(seller.getId());
 		System.out.println("It´s done. Id exclued is " + seller.getId());
