@@ -29,6 +29,16 @@ public class Aplic2 {
 		departmentDao.insert(newDepartment);
 		System.out.println("Add! The new id inserted is: " + newDepartment.getId());
 
+		
+		System.out.println("\n==== TEST 4: department update ====");
+		department = departmentDao.findById(6);
+		department.setName("Human Resources");
+		departmentDao.update(department);
+		System.out.println("Department updated: New name is " + department.getName());
+	
+		System.out.println("\n==== TEST 5: department delete ====");
+		departmentDao.deleteById(newDepartment.getId());
+		System.out.println("It´s done. Id exclued is " + newDepartment.getId());
 	}
 
 }

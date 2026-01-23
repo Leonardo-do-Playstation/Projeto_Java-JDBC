@@ -71,6 +71,9 @@ public class DepartmentDaoJDBC implements DepartmentDao{
 					 + "WHERE Id = ? "
 					);
 			
+			st.setString(1, obj.getName());
+			st.setInt(2, obj.getId());
+			
 			st.executeUpdate();
 		}
 		catch(SQLException e) {
@@ -94,7 +97,7 @@ public class DepartmentDaoJDBC implements DepartmentDao{
 			
 			st.setInt(1, id);
 			
-			st.executeQuery();
+			st.executeUpdate();
 		}
 		catch(SQLException e) {
 			throw new DbException(e.getMessage());
