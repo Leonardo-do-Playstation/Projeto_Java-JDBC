@@ -33,7 +33,7 @@ public class Aplic {
 		System.out.println("\n==== TEST 4: seller insert ====");
 		Seller newSeller = new Seller(null, "João Silva", "joao@gmail.com", new Date(), 4000.0, department);
 		sellerDao.insert(newSeller);
-		System.out.println("Insert! New id inserted is: " + newSeller.getId());
+		System.out.println("Add! New id inserted is: " + newSeller.getId());
 
 		System.out.println("\n==== TEST 5: seller update ====");
 		seller = sellerDao.findById(1);

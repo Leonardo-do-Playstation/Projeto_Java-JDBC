@@ -24,6 +24,7 @@ public class DepartmentDaoJDBC implements DepartmentDao{
 	@Override
 	public void insert(Department obj) {
 		PreparedStatement st = null;
+		ResultSet rs = null;
 		
 		try {
 			st = conn.prepareStatement(
@@ -31,21 +32,22 @@ public class DepartmentDaoJDBC implements DepartmentDao{
 							+ "(Name) "
 							+ "VALUES "
 							+ "(?) ",
-							+ Statement.RETURN_GENERATED_KEYS);
+							+ Statement.RETURN_GENERATED_KEYS
+							);
 			
 			st.setString(1, obj.getName());
 			
 			int rowsAffect = st.executeUpdate();
 
 			if (rowsAffect > 0) {
-				ResultSet rs = st.getGeneratedKeys();
+				rs = st.getGeneratedKeys();
 				if (rs.next()) {
 					int id = rs.getInt(1);
 					obj.setId(id);
 				}
 				DB.closeStatement(st);
 			} else {
-				throw new DbException("Unknow error! No runs affected.");
+				throw new DbException("Unknown error! No runs affected.");
 			}
 		}
 		catch(SQLException e) {
@@ -53,6 +55,7 @@ public class DepartmentDaoJDBC implements DepartmentDao{
 		}
 		finally {
 			DB.closeStatement(st);
+			DB.closeResultSet(rs);
 		}
 		
 	}
